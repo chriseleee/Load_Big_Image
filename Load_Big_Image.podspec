@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name                = "Load_Big_Image"
-s.version             = "0.0.3"
+s.version             = "0.0.1"
 s.summary             = "integrate APNs rapidly"
 s.homepage            = "https://github.com/chriseleee/Load_Big_Image"
 s.license             = { :type => "MIT", :file => "LICENSE" }
