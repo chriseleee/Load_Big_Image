@@ -4,65 +4,29 @@
 //
 //  Created by H on 17/1/12.
 //  Copyright © 2017年 H. All rights reserved.
-//  思路:
-// 分析卡顿原因:  runloop转一圈的时间太长了!!
-// 因为一次Runloop循环需要解析18张大图!!很卡!!
-// 接下来我要做:让runloop一次循环只解析一张大图!!!
+//
 
 
 
-#import "ViewController.h"
-//#import "ViewController2.h"
-//定义一个Block
-typedef void(^RunloopBlock)(void);
+#import "ViewControllerNo.h"
+
 
 static NSString * IDENTIFIER = @"IDENTIFIER";
 static CGFloat CELL_HEIGHT = 135.f;
 
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface ViewControllerNo ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UITableView *exampleTableView;
-
-@property(nonatomic,strong)NSMutableArray * tasks;
-/** 最大任务数 */
-@property(assign,nonatomic)NSUInteger maxQueueLenght;
-
 
 
 @end
 
-@implementation ViewController
-
--(void)timerMethod{
-    //啥都不干!!
-}
+@implementation ViewControllerNo
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    [NSTimer scheduledTimerWithTimeInterval:0.001 target:self selector:@selector(timerMethod) userInfo:nil repeats:YES];
-    
-    
-    
-             //注册Cell
+    //注册Cell
     [self.exampleTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:IDENTIFIER];
     
-    _tasks = [NSMutableArray array];
-    _maxQueueLenght = 108;
-    
-    [self addRunloopObserver];
-    
-    
-   
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    
-    [super viewDidAppear:animated];
-    //让runloop长存
-    //如果注释了下面这一行，子线程中的任务并不能正常执行
-//    [[NSRunLoop currentRunLoop] addPort:[NSMachPort port] forMode:NSRunLoopCommonModes];
-//    NSLog(@"启动RunLoop前--%@",[NSRunLoop currentRunLoop].currentMode);
-//    [[NSRunLoop currentRunLoop] run];
 }
 
 //MARK: 内部实现方法
@@ -86,7 +50,7 @@ static CGFloat CELL_HEIGHT = 135.f;
     label1.font = [UIFont boldSystemFontOfSize:13];
     label1.tag = 5;
     [cell.contentView addSubview:label1];
-
+    
 }
 
 
@@ -171,75 +135,16 @@ static CGFloat CELL_HEIGHT = 135.f;
         [[cell.contentView viewWithTag:i] removeFromSuperview];
     }
     //添加文字
-    [ViewController addlabel:cell indexPath:indexPath];
+    [ViewControllerNo addlabel:cell indexPath:indexPath];
     //添加图片
-    [self addTask:^{
-        [ViewController addImage1With:cell];
-    }];
-    
-    [self addTask:^{
-        [ViewController addImage2With:cell];
-    }];
-    [self addTask:^{
-        [ViewController addImage3With:cell];
-    }];
+    [ViewControllerNo addImage1With:cell];
+    [ViewControllerNo addImage2With:cell];
+    [ViewControllerNo addImage3With:cell];
     
     return cell;
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//    ViewController2 * vc = [ViewController2 new];
-//    [self presentViewController:vc animated:YES completion:nil];
-}
-
-
-#pragma mark - <关于Runloop的代码>
-
--(void)addTask:(RunloopBlock)task{
-    //添加任务到数组!!
-    [self.tasks addObject:task];
-    if (self.tasks.count > self.maxQueueLenght) {
-        [self.tasks removeObjectAtIndex:0];
-    }
-    
-}
-
-//添加Runloop观察者!!  CoreFoundtion 里面 Ref (引用)指针!!
--(void)addRunloopObserver{
-    //拿到当前的runloop
-    CFRunLoopRef runloop = CFRunLoopGetCurrent();
-    //定义一个context
-    CFRunLoopObserverContext context = {
-        0,
-        (__bridge void *)(self),
-        &CFRetain,
-        &CFRelease,
-        NULL,
-    };
-    
-    //定义观察
-    static CFRunLoopObserverRef defaultModeObserver;
-    //创建观察者
-    defaultModeObserver = CFRunLoopObserverCreate(NULL, kCFRunLoopBeforeWaiting, YES, 0, &Callback, &context);
-    //添加当前runloop的观察者!!
-    CFRunLoopAddObserver(runloop, defaultModeObserver, kCFRunLoopCommonModes);
-    //C 语言里面Create相关的函数!创建出来的指针!需要释放
-    CFRelease(defaultModeObserver);
-}
-
-static void Callback(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info){
-    //拿到控制器
-    ViewController * vc = (__bridge ViewController *)info;
-    if (vc.tasks.count == 0) {
-        return;
-    }
-    RunloopBlock task = vc.tasks.firstObject;
-    task();
-    //干掉第一个任务
-    [vc.tasks removeObjectAtIndex:0];
-}
-
-
 
 @end
+
 

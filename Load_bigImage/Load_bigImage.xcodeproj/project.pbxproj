@@ -13,6 +13,9 @@
 		C2D6F5E1207B07ED00D407BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2D6F5E0207B07ED00D407BB /* Assets.xcassets */; };
 		C2D6F5E4207B07ED00D407BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2D6F5E2207B07ED00D407BB /* LaunchScreen.storyboard */; };
 		C2D6F5E7207B07ED00D407BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D6F5E6207B07ED00D407BB /* main.m */; };
+		C2D6F5F1207B082B00D407BB /* spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = C2D6F5ED207B082A00D407BB /* spaceship.png */; };
+		C2D6F5F2207B082B00D407BB /* ViewControllerNo.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D6F5EF207B082A00D407BB /* ViewControllerNo.m */; };
+		C2D6F5F3207B082B00D407BB /* spaceship.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C2D6F5F0207B082A00D407BB /* spaceship.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,10 @@
 		C2D6F5E3207B07ED00D407BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C2D6F5E5207B07ED00D407BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2D6F5E6207B07ED00D407BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C2D6F5ED207B082A00D407BB /* spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spaceship.png; sourceTree = "<group>"; };
+		C2D6F5EE207B082A00D407BB /* ViewControllerNo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerNo.h; sourceTree = "<group>"; };
+		C2D6F5EF207B082A00D407BB /* ViewControllerNo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerNo.m; sourceTree = "<group>"; };
+		C2D6F5F0207B082A00D407BB /* spaceship.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spaceship.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +69,10 @@
 				C2D6F5D8207B07ED00D407BB /* AppDelegate.m */,
 				C2D6F5DA207B07ED00D407BB /* ViewController.h */,
 				C2D6F5DB207B07ED00D407BB /* ViewController.m */,
+				C2D6F5F0207B082A00D407BB /* spaceship.jpg */,
+				C2D6F5ED207B082A00D407BB /* spaceship.png */,
+				C2D6F5EE207B082A00D407BB /* ViewControllerNo.h */,
+				C2D6F5EF207B082A00D407BB /* ViewControllerNo.m */,
 				C2D6F5DD207B07ED00D407BB /* Main.storyboard */,
 				C2D6F5E0207B07ED00D407BB /* Assets.xcassets */,
 				C2D6F5E2207B07ED00D407BB /* LaunchScreen.storyboard */,
@@ -129,7 +140,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2D6F5F1207B082B00D407BB /* spaceship.png in Resources */,
 				C2D6F5E4207B07ED00D407BB /* LaunchScreen.storyboard in Resources */,
+				C2D6F5F3207B082B00D407BB /* spaceship.jpg in Resources */,
 				C2D6F5E1207B07ED00D407BB /* Assets.xcassets in Resources */,
 				C2D6F5DF207B07ED00D407BB /* Main.storyboard in Resources */,
 			);
@@ -143,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2D6F5DC207B07ED00D407BB /* ViewController.m in Sources */,
+				C2D6F5F2207B082B00D407BB /* ViewControllerNo.m in Sources */,
 				C2D6F5E7207B07ED00D407BB /* main.m in Sources */,
 				C2D6F5D9207B07ED00D407BB /* AppDelegate.m in Sources */,
 			);
