@@ -1,8 +1,8 @@
 //
 //  AppDelegate.m
-//  Load_Big_Image
+//  Load_bigImage
 //
-//  Created by chrise on 2018/3/12.
+//  Created by chrise on 2018/4/9.
 //  Copyright © 2018年 chrise. All rights reserved.
 //
 

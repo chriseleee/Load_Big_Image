@@ -1,6 +1,6 @@
 //
-//  ViewControllerNo.h
-//  Load_Big_Image
+//  ViewController.h
+//  Load_bigImage
 //
 //  Created by chrise on 2018/4/9.
 //  Copyright © 2018年 chrise. All rights reserved.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewControllerNo : UIViewController
+@interface ViewController : UIViewController
+
 
 @end
+
